@@ -17,12 +17,13 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'],
-      nama: json['name'],
-      price: json['price'],
-      qty: json['qty'],
-      attr: json['attr'],
-      weight: json['weight'],
+      id: json['id'] as String,
+      nama: json['name'] as String,
+      price: json['price'].toInt(), // Convert to integer (may cause truncation)
+      qty: json['qty'].toInt(), // Convert to integer (may cause truncation)
+      attr: json['attr'] as String,
+      weight:
+          json['weight'].toInt(), // Convert to integer (may cause truncation)
     );
   }
 }
